@@ -53,6 +53,11 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
  <div class="d-flex justify-content-center align-items-center"  style="min-height: 20vh;">
     <form class="shadow p-4 rounded mt-5" style="width: 75%; max-width: 75rem;" method="post" action="bookadded.php">
     <h1 class="text-center display-4 ">Add new book</h1>
+  <?php if(isset($_GET['error'])) { ?>
+      <div class="alert alert-danger" role="alert">
+       <?php echo htmlspecialchars($_GET['error']) ?>
+</div>
+<?php } ?>
   <div class="mb-3">
     <label class="form-label">Book Title</label>
     <input type="text" class="form-control" name="title">
