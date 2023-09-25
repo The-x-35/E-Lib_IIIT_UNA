@@ -74,6 +74,14 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
     <label class="form-label">Category</label>
     <input type="text" class="form-control" name="cat">
   </div>
+    <div class="mb-3">
+    <label class="form-label">Cover Page link</label>
+    <input type="text" class="form-control" name="cp">
+  </div>
+      <div class="mb-3">
+    <label class="form-label">Book link</label>
+    <input type="text" class="form-control" name="bl">
+  </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
   </div>

@@ -7,6 +7,8 @@ if(isset($_POST['title'])&&isset($_POST['author'])&&isset($_POST['desc'])&&isset
    $author = $_POST['author'];
    $desc = $_POST['desc'];
    $cat = $_POST['cat'];
+   $cp= $_POST['cp'];
+   $bl = $_POST['bl'];
 
    $text = "Book Title";
    $location = "add-book.php";
@@ -27,6 +29,16 @@ if(isset($_POST['title'])&&isset($_POST['author'])&&isset($_POST['desc'])&&isset
    $location = "add-book.php";
    $ms = "error";
    is_empty($cat,$text,$location,$ms,"");
+
+   $text = "Cover Page link";
+   $location = "add-book.php";
+   $ms = "error";
+   is_empty($cp,$text,$location,$ms,"");
+
+   $text = "Book link";
+   $location = "add-book.php";
+   $ms = "error";
+   is_empty($bl,$text,$location,$ms,"");
 
 }else{
   header("Location: add-book.php");
