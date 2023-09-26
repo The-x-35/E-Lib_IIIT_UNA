@@ -33,7 +33,7 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
           <a class="nav-link" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="add-book.php">Add new book</a>
+          <a class="nav-link active" href="add-book.php">Add new book</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.php">Logout</a>
