@@ -53,6 +53,11 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
 </nav>
     </nav>
     <h4>All Books</h4>
+      <?php if(isset($_GET['success'])) { ?>
+      <div class="alert alert-success" role="alert">
+       <?php echo htmlspecialchars($_GET['success']) ?>
+</div>
+<?php } ?>
     <table class="table table-bordered shadow">
       <thread>
         <tr>

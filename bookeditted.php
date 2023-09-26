@@ -10,43 +10,48 @@ if(isset($_POST['title'])&&isset($_POST['author'])&&isset($_POST['desc'])&&isset
    $cat = $_POST['cat'];
    $cp= $_POST['cp'];
    $bl = $_POST['bl'];
+   $id =$_POST['id'];
 
    $text = "Book Title";
-   $location = "add-book.php";
+   $location = "edit-book.php";
    $ms = "error";
    is_empty($title,$text,$location,$ms,"");
 
    $text = "Author Name";
-   $location = "add-book.php";
+   $location = "edit-book.php";
    $ms = "error";
    is_empty($author,$text,$location,$ms,"");
 
    $text = "Description";
-   $location = "add-book.php";
+   $location = "edit-book.php";
    $ms = "error";
    is_empty($desc,$text,$location,$ms,"");
 
    $text = "Category";
-   $location = "add-book.php";
+   $location = "edit-book.php";
    $ms = "error";
    is_empty($cat,$text,$location,$ms,"");
 
    $text = "Cover Page link";
-   $location = "add-book.php";
+   $location = "edit-book.php";
    $ms = "error";
    is_empty($cp,$text,$location,$ms,"");
 
    $text = "Book link";
-   $location = "add-book.php";
+   $location = "edit-book.php";
    $ms = "error";
    is_empty($bl,$text,$location,$ms,"");
   
    $text="";
    if(!is_empty($title,$text,$location,$ms,"")&&!is_empty($author,$text,$location,$ms,"")&&!is_empty($desc,$text,$location,$ms,"")&&!is_empty($cat,$text,$location,$ms,"")&&!is_empty($cp,$text,$location,$ms,"")&&!is_empty($bl,$text,$location,$ms,"")){
-    $entry= "\n".$title.",".$author.",".$desc.",".$cat.",".$cp.",".$bl;
-    file_put_contents("books.txt",$entry,FILE_APPEND);
-    $sm="Book added successfully.";
-    header("Location: add-book.php?success=$sm");
+    $entry= $title.",".$author.",".$desc.",".$cat.",".$cp.",".$bl;
+    $file = explode("\n", file_get_contents("books.txt"));
+    $line = $file[$id];
+    $contents = file_get_contents("books.txt");
+    $contents = str_replace($line, $entry, $contents);
+    file_put_contents("books.txt", $contents);
+    $sm="Book editted successfully.";
+    header("Location: admin.php?success=$sm");
     
    }
 

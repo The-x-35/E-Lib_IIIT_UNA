@@ -58,7 +58,7 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
 </nav>
     </nav>
  <div class="d-flex justify-content-center align-items-center"  style="min-height: 20vh;">
-    <form class="shadow p-4 rounded mt-5" style="width: 75%; max-width: 75rem;" method="post" action="bookadded.php">
+    <form class="shadow p-4 rounded mt-5" style="width: 75%; max-width: 75rem;" method="post" action="bookeditted.php">
     <h1 class="text-center display-4 ">Edit book</h1>
   <?php if(isset($_GET['error'])) { ?>
       <div class="alert alert-danger" role="alert">
@@ -73,6 +73,7 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
   <div class="mb-3">
     <label class="form-label">Book Title</label>
     <input type="text" class="form-control" value="<?=$book[$id-1][0]?>" name="title">
+    <input type="text" value="<?=$id-1?>" hidden name="id">
   </div>
    <div class="mb-3">
     <label class="form-label">Author Name</label>
@@ -94,7 +95,7 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
     <label class="form-label">Book link</label>
     <input type="text" class="form-control" value="<?=$book[$id-1][5]?>" name="bl">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">Update</button>
 </form>
   </div>
 
