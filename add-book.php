@@ -58,6 +58,11 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
        <?php echo htmlspecialchars($_GET['error']) ?>
 </div>
 <?php } ?>
+      <?php if(isset($_GET['success'])) { ?>
+      <div class="alert alert-success" role="alert">
+       <?php echo htmlspecialchars($_GET['success']) ?>
+</div>
+<?php } ?>
   <div class="mb-3">
     <label class="form-label">Book Title</label>
     <input type="text" class="form-control" name="title">
