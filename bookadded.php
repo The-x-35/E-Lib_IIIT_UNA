@@ -46,7 +46,7 @@ if(isset($_POST['title'])&&isset($_POST['author'])&&isset($_POST['desc'])&&isset
     $entry= "\n".$title.",".$author.",".$desc.",".$cat.",".$cp.",".$bl;
     file_put_contents("books.txt",$entry,FILE_APPEND);
     $sm="Book added successfully.";
-    header("Location: add-book.php?success =$sm");
+    header("Location: add-book.php?success=$sm");
     
    }
 

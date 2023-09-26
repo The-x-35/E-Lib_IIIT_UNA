@@ -1,15 +1,20 @@
 <?php
 session_start();
 if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
-  include "func-book.php";
-  $book = get_all_books();
+   if(!isset($_GET['id'])){
+     header("LOCATION: admin.php");
+     exit;
+   }
+     $id=$_GET['id'];
+     include "func-book.php";
+     $book = get_all_books();
   ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin</title>
+  <title>Edit book</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
@@ -52,35 +57,47 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
   </div>
 </nav>
     </nav>
-    <h4>All Books</h4>
-    <table class="table table-bordered shadow">
-      <thread>
-        <tr>
-          <th>#</th>
-          <th>Title</th>
-          <th>Author</th>
-          <th>Description</th>
-          <th>Category</th>
-          <th>Action</th>
-        </tr>
-      </thread>
-      <tbody>
-        <?php for ($x = 0; $x < count($book); $x++) { ?>
-        <tr>
-      <td><?=$x+1?></td>
-      <td><div class="text-center"><img width="100" src =<?=$book[$x][4]?>></div>
-          <a class="link-dark d-block text-center" href=<?=$book[$x][5]?>><?=$book[$x][0]?></td>
-      <td><?=$book[$x][1]?></td>
-      <td><?=$book[$x][2]?></td>
-      <td><?=$book[$x][3]?></td>
-      <td>
-        <a href="edit-book.php?id=<?=$x+1?>" class="btn btn-warning">Edit</a>
-        <a href="#" class="btn btn-danger">Delete</a>
-      </td>
-     </tr>
-       <?php }  ?>
-    </tbody>
-    </table>
+ <div class="d-flex justify-content-center align-items-center"  style="min-height: 20vh;">
+    <form class="shadow p-4 rounded mt-5" style="width: 75%; max-width: 75rem;" method="post" action="bookadded.php">
+    <h1 class="text-center display-4 ">Edit book</h1>
+  <?php if(isset($_GET['error'])) { ?>
+      <div class="alert alert-danger" role="alert">
+       <?php echo htmlspecialchars($_GET['error']) ?>
+</div>
+<?php } ?>
+      <?php if(isset($_GET['success'])) { ?>
+      <div class="alert alert-success" role="alert">
+       <?php echo htmlspecialchars($_GET['success']) ?>
+</div>
+<?php } ?>
+  <div class="mb-3">
+    <label class="form-label">Book Title</label>
+    <input type="text" class="form-control" value="<?=$book[$id-1][0]?>" name="title">
+  </div>
+   <div class="mb-3">
+    <label class="form-label">Author Name</label>
+    <input type="text" class="form-control" value="<?=$book[$id-1][1]?>" name="author">
+  </div>
+      <div class="mb-3">
+    <label class="form-label">Description</label>
+    <input type="text" class="form-control" value="<?=$book[$id-1][2]?>" name="desc" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+    <div class="mb-3">
+    <label class="form-label">Category</label>
+    <input type="text" class="form-control" value="<?=$book[$id-1][3]?>" name="cat">
+  </div>
+    <div class="mb-3">
+    <label class="form-label">Cover Page link</label>
+    <input type="text" class="form-control" value="<?=$book[$id-1][4]?>" name="cp">
+  </div>
+      <div class="mb-3">
+    <label class="form-label">Book link</label>
+    <input type="text" class="form-control" value="<?=$book[$id-1][5]?>" name="bl">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+  </div>
+
   </div>
 </body>
 </html>
