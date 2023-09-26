@@ -74,7 +74,7 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
         <tr>
       <td><?=$x+1?></td>
       <td><div class="text-center"><img width="100" src =<?=$book[$x][4]?>></div>
-          <a class="link-dark d-block text-center" href=<?=$book[$x][5]?>><?=$book[$x][0]?></td>
+          <a class="link d-block text-center" href=<?=$book[$x][5]?>><?=$book[$x][0]?></td>
       <td><?=$book[$x][1]?></td>
       <td><?=$book[$x][2]?></td>
       <td><?=$book[$x][3]?></td>
