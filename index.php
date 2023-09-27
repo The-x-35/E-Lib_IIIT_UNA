@@ -1,3 +1,8 @@
+<?php
+session_start();
+include "func-book.php";
+$book = get_all_books();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +13,8 @@
   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href= "style.css">
 </head>
 
   
@@ -35,7 +42,11 @@
           <a class="nav-link" href="#">Request a book</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Login</a>
+          <?php if(isset($_SESSION['user_id'])){?>
+          <a class="nav-link" href="admin.php">Admin</a>
+          <?php }else{?>
+         <a class="nav-link" href="login.php">Login</a>
+          <?php }?>
         </li>
       </ul>
       <form action="search.php" method="get" class="d-flex" role="search">
@@ -46,6 +57,30 @@
   </div>
 </nav>
     </nav>
+        <div class="container p-3">
+        <div class="row ">
+            <?php   for ($x = 0; $x < count($book); $x++) { ?>
+            <div class="col-lg-4 col-md-6 p-3">
+                <div class="card">
+                    <img src="<?=$book[$x][4]?>" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><?=$book[$x][0]?></h5>
+               <p class="card-text"><br><i><b>By: </b><?=$book[$x][1]?></i><br><i><b>Category: </b><?=$book[$x][3]?></b></i><br><?=$book[$x][2]?>
+             </p>
+                      <a href="<?=$book[$x][5]?>" class="btn btn-success">Open</a>
+                    </div>
+                </div>
+            </div>
+            <?php }?>
+         
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+           
+    </div>
   </div>
 </body>
 </html>

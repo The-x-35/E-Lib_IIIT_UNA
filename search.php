@@ -39,7 +39,7 @@ $book = search_books($key);
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+          <a class="nav-link" aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
@@ -66,28 +66,38 @@ $book = search_books($key);
     Search result(s) for <b><?=$key?></b>
 
     <div class="d-flex pt-3">
-      <?php if($books==0){?>
+      <?php if($book==0){?>
          <div class="alert alert-warning text text-center p-5 pdf-list" role="alert">
           <img src="empty.jpg" width="100">  
            <br> <b>"<?=$key?>"</b> not found! You can use the request a book form.
          </div>
-        <?php }else{
-               for ($x = 0; $x < count($book); $x++) { ?>
-      <div class="pdf-list d-flex flex-wrap">
-         <div class="card m-1">
-          <img src="<?=$book[$x][4]?>" class ="card-img-top">
-           <div class="card-body">
-             <h5 class="card-title"><?=$book[$x][0]?></h5>
-             <p class="card-text"><br><i><b>By: <?=$book[$x][1]?></b></i><br><i><b>Category: <?=$book[$x][3]?></b></i><?=$book[$x][2]?>
+        
+        <?php }else{?>
+             <div class="container p-3">
+            <div class="row">
+           <?php for ($x = 0; $x < count($book); $x++) { ?>
+            
+            <div class="col-lg-4 col-md-6 p-3">
+                <div class="card">
+                    <img src="<?=$book[$x][4]?>" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title"><?=$book[$x][0]?></h5>
+               <p class="card-text"><br><i><b>By: </b><?=$book[$x][1]?></i><br><i><b>Category: </b><?=$book[$x][3]?></b></i><br><?=$book[$x][2]?>
              </p>
-             <a href="<?=$book[$x][5]?>" class="btn btn-success">Open</a>
-             <a href="<?=$book[$x][5]?>" class="btn btn-primary" download="<?=$book[$x][0]?>">Download</a>
-             <?php }?>
-            </div> 
-           </div>
-           </div>
-          <?php } ?>
-      </div>
+                      <a href="<?=$book[$x][5]?>" class="btn btn-success">Open</a>
+                    </div>
+                </div>
+            </div>
+            <?php }?>
+                    <?php }?>
+         
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+          
     </div>
   </div>
 </body>
