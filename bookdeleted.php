@@ -10,14 +10,16 @@ include "func-book.php";
     #$contents = file_get_contents("books.txt");
    # $contents = str_replace($line, "", $contents);
     
-     $contents=array();
-      $c=0;
-     for ($x = 0; $x < count($file); $x++) {
-        if($x!=$id){
-          $contents[$c++]=$file[$x]."\n";
-        }
-     }
-    file_put_contents("books.txt", $contents);
+     $lines = file("books.txt");
+
+    // Remove the specified line
+    if (isset($lines[$id])) {
+        unset($lines[$id]);
+    }
+
+    // Write the remaining lines to a new file
+    file_put_contents("books.txt", implode("", $lines));
+    
     $sm="Book deleted successfully.";
     header("Location: admin.php?success=$sm");
 

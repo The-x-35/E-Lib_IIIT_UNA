@@ -5,11 +5,11 @@ $file = explode("\n", file_get_contents("books.txt"));
 function get_all_books() {
    global $file;
   $books=array();
-  for ($x = 0; $x < count($file); $x++) {
-      if($file[$x]!=NULL){
+  for ($x = 0; $x < count($file)-1; $x++) {
+     
        $entry=explode('$?', $file[$x]);
        array_push($books,$entry);
-      }
+      
   }
    
      return $books;

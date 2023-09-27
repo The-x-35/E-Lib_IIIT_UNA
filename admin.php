@@ -71,7 +71,8 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
         </tr>
       </thread>
       <tbody>
-        <?php for ($x = 0; $x < count($book); $x++) { ?>
+        <?php for ($x = 0; $x < count($book); $x++) { 
+          if($book[$x]!= ""){?>
         <tr>
       <td><?=$x+1?></td>
       <td><div class="text-center"><img width="100" src =<?=$book[$x][4]?>></div>
@@ -84,7 +85,7 @@ if(isset($_SESSION['user_id'])&&isset($_SESSION['user_email'])){
         <a href="delete-book.php?id=<?=$x+1?>" class="btn btn-danger">Delete</a>
       </td>
      </tr>
-       <?php }  ?>
+       <?php }}  ?>
     </tbody>
     </table>
   </div>
