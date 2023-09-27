@@ -16,17 +16,29 @@ function get_all_books() {
 }
 
 function search_books($key) {
-   global $file;
-   $key_algo="%{$key}%";
-  $books=array();
-  for ($x = 0; $x < count($file); $x++) {
-      if($file[$x]!=NULL){
-       $entry=explode('$?', $file[$x]);
-       array_push($books,$entry);
-      }
-  }
-   
-     return $books;
+    $resultArray = array();
+    $array = get_all_books();
+
+    foreach ($array as $row) {
+        // Check if the search string is present in the row (case-insensitive)
+        $found = false;
+        foreach ($row as $value) {
+            if (stripos($value, $key)!== false) {
+                $found = true;
+                break;
+            }
+        }
+
+        // Check if the row is not already in the result array
+        if ($found && !in_array($row, $resultArray)) {
+            // Add the row to the result array
+            $resultArray[] = $row;
+        }
+    }
+
+    return $resultArray;
 }
+
+
 
 
