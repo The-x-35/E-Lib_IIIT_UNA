@@ -8,4 +8,10 @@
   display: flex;
   flex-direction: column;
 }
+.custom-container{
+  display: flex;
+  flex-direction: column;
+}
+
+
 

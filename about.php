@@ -9,22 +9,8 @@ $book = get_all_books();
   <link rel="icon" href="https://i.ibb.co/vQDp72t/Iiit-una-logo.png" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-        .custom-container {
-            min-height: 20vh;
-        }
+ <link rel="stylesheet" href= "style.css">
 
-        .custom-form {
-            width: 75%;
-        }
-
-        /* Media query for screens smaller than 768px (tablets and below) */
-        @media (max-width: 768px) {
-            .custom-form {
-                width: 100%; /* Make the form full width on smaller screens */
-            }
-        }
-    </style>
   <title>About</title>
   
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -76,9 +62,9 @@ $book = get_all_books();
 </nav>
     </nav>
        <div class="d-flex justify-content-center align-items-center pt-3 custom-container"  style="min-height: 20vh;">
-    <form class="p-5 rounded shadow custom-form" style="width: 100%" method="POST">
+    <form class="p-5 rounded shadow custom-form" style="width: 100% min-width=670px" method="POST">
       <div class="d-grid gap-2">
-    <button type="button" class="btn btn-primary btn-lg text-center">ABOUT IIIT UNA</button>
+    <button type="button" class="btn btn-primary btn-lg text-center">ABOUT IIIT UNA</button> 
         <p class="text-justify">
                 IIIT Una is one of the 20 IIITs being setup, funded and managed by the Ministry of Education, Govt. of India under the Public Private Partnership (PPP) model. The partners setting up IIIT Una are the Ministry of Education, Govt. of India, the Govt. of Himachal Pradesh, HP Power Corporation Limited and HP Transmission Corporation Limited. Admissions to the undergraduate programmes in the Institute are made through the Joint Entrance Examination (JEE).<br>
 
