@@ -4,9 +4,10 @@ if(!isset($_GET['key'])|| empty($_GET['key'])){
   header("Location: index.php");
   exit;
 }
-include "func-book.php";
-#$book = search_books();
 $key = $_GET['key'];
+include "func-book.php";
+$book = search_books($key);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,22 +62,31 @@ $key = $_GET['key'];
     </div>
   </div>
 </nav>
-    </nav>
+    </nav><br>
     Search result(s) for <b><?=$key?></b>
 
-    <div class="d-flex">
+    <div class="d-flex pt-3">
+      <?php if($books==0){?>
+         <div class="alert alert-warning text text-center p-5 pdf-list" role="alert">
+          <img src="empty.jpg" width="100">  
+           <br> <b>"<?=$key?>"</b> not found! You can use the request a book form.
+         </div>
+        <?php }else{
+               for ($x = 0; $x < count($book); $x++) { ?>
       <div class="pdf-list d-flex flex-wrap">
          <div class="card m-1">
-          <img src="https://i.ibb.co/vQDp72t/Iiit-una-logo.png" class ="card-img-top">
+          <img src="<?=$book[$x][4]?>" class ="card-img-top">
            <div class="card-body">
-             <h5 class="card-title">Arpit</h5>
-             <p class="card-text">this is a good book
+             <h5 class="card-title"><?=$book[$x][0]?></h5>
+             <p class="card-text"><br><i><b>By: <?=$book[$x][1]?></b></i><br><i><b>Category: <?=$book[$x][3]?></b></i><?=$book[$x][2]?>
              </p>
-             <a href="https://i.ibb.co/vQDp72t/Iiit-una-logo.png" class="btn btn-success">Open</a>
-             <a href="https://i.ibb.co/vQDp72t/Iiit-una-logo.png" class="btn btn-primary" download="">Download</a>
+             <a href="<?=$book[$x][5]?>" class="btn btn-success">Open</a>
+             <a href="<?=$book[$x][5]?>" class="btn btn-primary" download="<?=$book[$x][0]?>">Download</a>
+             <?php }?>
             </div> 
            </div>
            </div>
+          <?php } ?>
       </div>
     </div>
   </div>

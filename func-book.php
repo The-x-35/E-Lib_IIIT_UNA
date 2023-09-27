@@ -7,9 +7,26 @@ function get_all_books() {
   $books=array();
   for ($x = 0; $x < count($file); $x++) {
       if($file[$x]!=NULL){
-  $entry=explode(',', $file[$x]);
-  
-  array_push($books,$entry);}}
+       $entry=explode(',', $file[$x]);
+       array_push($books,$entry);
+      }
+  }
    
      return $books;
 }
+
+function search_books($key) {
+   global $file;
+   $key_algo="%{$key}%";
+  $books=array();
+  for ($x = 0; $x < count($file); $x++) {
+      if($file[$x]!=NULL){
+       $entry=explode(',', $file[$x]);
+       array_push($books,$entry);
+      }
+  }
+   
+     return $books;
+}
+
+
