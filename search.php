@@ -1,13 +1,25 @@
+<?php
+session_start();
+if(!isset($_GET['key'])|| empty($_GET['key'])){
+  header("Location: index.php");
+  exit;
+}
+include "func-book.php";
+#$book = search_books();
+$key = $_GET['key'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Lib: IIIT UNA</title>
+  <title>Search Result(s)</title>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href= "style.css">
 </head>
 
   
@@ -35,7 +47,11 @@
           <a class="nav-link" href="#">Request a book</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login.php">Login</a>
+          <?php if(isset($_SESSION['user_id'])){?>
+          <a class="nav-link" href="admin.php">Admin</a>
+          <?php }else{?>
+         <a class="nav-link" href="login.php">Login</a>
+          <?php }?>
         </li>
       </ul>
       <form action="search.php" method="get" class="d-flex" role="search">
@@ -46,6 +62,23 @@
   </div>
 </nav>
     </nav>
+    Search result(s) for <b><?=$key?></b>
+
+    <div class="d-flex">
+      <div class="pdf-list d-flex flex-wrap">
+         <div class="card m-1">
+          <img src="https://i.ibb.co/vQDp72t/Iiit-una-logo.png" class ="card-img-top">
+           <div class="card-body">
+             <h5 class="card-title">Arpit</h5>
+             <p class="card-text">this is a good book
+             </p>
+             <a href="https://i.ibb.co/vQDp72t/Iiit-una-logo.png" class="btn btn-success">Open</a>
+             <a href="https://i.ibb.co/vQDp72t/Iiit-una-logo.png" class="btn btn-primary" download="">Download</a>
+            </div> 
+           </div>
+           </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>

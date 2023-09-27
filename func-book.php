@@ -6,8 +6,10 @@ function get_all_books() {
    global $file;
   $books=array();
   for ($x = 0; $x < count($file); $x++) {
+      if($file[$x]!=NULL){
   $entry=explode(',', $file[$x]);
-  array_push($books,$entry);}
+  
+  array_push($books,$entry);}}
    
      return $books;
 }
