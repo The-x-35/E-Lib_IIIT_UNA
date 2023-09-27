@@ -68,6 +68,37 @@ $book = get_all_books();
 At present, IIIT Una operates from its permanent campus at Saloh, Una. The campus is fully furnished and working full fledged from its permanent campus.
             </p>
         <button type="button" class="btn btn-info btn-lg text-center">About Us</button>
+        <div class="container mt-4">
+        <div class="row ">
+            <div class="col-lg-4 col-md-6 p-3">
+                <div class="card">
+                    <img src="https://i.ibb.co/f2T1kfp/IMG-20230725-WA0001.jpg" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Arpit Singh Bhatia</h5>
+               <p class="card-text"> <br><i><b>Team name: Code faad dunga</i></b>
+             </p>
+                      <a href="https://www.linkedin.com/in/arpit-singh-bhatia-6abb36230" class="btn btn-primary">Linkedin</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 p-3">
+                <div class="card">
+                    <img src="https://i.ibb.co/qFcB6kn/Whats-App-Image-2023-09-27-at-10-54-58-PM.jpg" class="card-img-top" alt="Card Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Nikhil Arora</h5>
+               <p class="card-text"> <br><i><b>Team name: Code faad dunga</i></b>
+             </p>
+                      <a href="https://www.linkedin.com/in/nikhil-arora-9642b4258" class="btn btn-primary">Linkedin</a>
+                    </div>
+                </div>
+            </div>
+         
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
      </div>
       
     </div>

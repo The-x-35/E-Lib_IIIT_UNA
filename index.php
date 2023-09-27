@@ -2,6 +2,7 @@
 session_start();
 include "func-book.php";
 $book = get_all_books();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +67,7 @@ $book = get_all_books();
                     <img src="<?=$book[$x][4]?>" class="card-img-top" alt="Card Image">
                     <div class="card-body">
                         <h5 class="card-title"><?=$book[$x][0]?></h5>
-               <p class="card-text"><br><i><b>By: </b><?=$book[$x][1]?></i><br><i><b>Category: </b><?=$book[$x][3]?></b></i><br><?=$book[$x][2]?>
+               <p class="card-text"><br><i><b>By: </b><?=$book[$x][1]?></i><br><i><b>Category: </b><?=$book[$x][3]?></b></i><br><?=$book[$x][3]?></b></i><br><?=substr($book[$x][2],0,100)."..."?>
              </p>
                       <a href="<?=$book[$x][5]?>" class="btn btn-success">Open</a>
                     </div>
