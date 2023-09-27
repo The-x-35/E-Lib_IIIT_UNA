@@ -4,3 +4,8 @@
 .card {
   width: 18rem;
 }
+.container{
+  display: flex;
+  flex-direction: column;
+}
+

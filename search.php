@@ -76,6 +76,7 @@ $book = search_books($key);
         <?php }else{?>
              <div class="container p-3">
             <div class="row">
+              
            <?php for ($x = 0; $x < count($book); $x++) { ?>
             
             <div class="col-lg-4 col-md-6 p-3">

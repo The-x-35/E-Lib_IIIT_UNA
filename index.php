@@ -59,10 +59,11 @@ $book = get_all_books();
   </div>
 </nav>
     </nav>
-        <div class="container p-3">
-        <div class="row ">
+        <div class="container p-3 mx-auto">
+        <div class="container">
+        <div class="row justify-content-center">
             <?php   for ($x = 0; $x < count($book); $x++) { ?>
-            <div class="col-lg-4 col-md-6 p-3">
+            <div class="col-lg-4 col-md-6 col-sm-12 p-3">
                 <div class="card">
                     <img src="<?=$book[$x][4]?>" class="card-img-top" alt="Card Image">
                     <div class="card-body">
@@ -81,7 +82,7 @@ $book = get_all_books();
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-           
+        </div>
     </div>
   </div>
 </body>
