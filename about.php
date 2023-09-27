@@ -40,7 +40,7 @@ $book = get_all_books();
           <a class="nav-link active" href="about.php">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Request a book</a>
+          <a class="nav-link" href="rab.php">Request a book</a>
         </li>
         <li class="nav-item">
           <?php if(isset($_SESSION['user_id'])){?>
