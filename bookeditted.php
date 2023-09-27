@@ -44,7 +44,7 @@ if(isset($_POST['title'])&&isset($_POST['author'])&&isset($_POST['desc'])&&isset
   
    $text="";
    if(!is_empty($title,$text,$location,$ms,"")&&!is_empty($author,$text,$location,$ms,"")&&!is_empty($desc,$text,$location,$ms,"")&&!is_empty($cat,$text,$location,$ms,"")&&!is_empty($cp,$text,$location,$ms,"")&&!is_empty($bl,$text,$location,$ms,"")){
-    $entry= $title.",".$author.",".$desc.",".$cat.",".$cp.",".$bl;
+    $entry= $title."$?".$author."$?".$desc."$?".$cat."$?".$cp."$?".$bl;
     $file = explode("\n", file_get_contents("books.txt"));
     $line = $file[$id];
     $contents = file_get_contents("books.txt");
