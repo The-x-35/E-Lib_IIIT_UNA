@@ -49,7 +49,7 @@ $book = get_all_books();
           <?php if(isset($_SESSION['user_id'])){?>
           <a class="nav-link" href="admin.php">Admin</a>
           <?php }else{?>
-         <a class="nav-link" href="login.php">Login</a>
+         <a class="nav-link" href="login.php">Admin Login</a>
           <?php }?>
         </li>
       </ul>
