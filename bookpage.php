@@ -59,23 +59,25 @@
   </div>
 </nav>
     </nav>
-        <div class="container p-3 mx-auto" style= "width: 80%;">
-        <div class="container" style= "width: 80%;">
-        <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 col-sm-12 p-3" style= "width: 80%;">
-               <a href="bookpage.php?id=<?=$id+1?>" class="custom-card">
-              <div class="card" style= "width: 80%;">
-                    <img src="<?=$book[$id][4]?>" class="card-img-top" alt="Card Image" >
-                    <div class="card-body">
-                        <h5 class="card-title"><?=$book[$id][0]?></h5>
-               <p class="card-text"><br><i><b>By: </b><?=$book[$id][1]?></i><br><i><b>Category: </b><?=$book[$id][3]?></b></i><br><?=$book[$id][3]?></b></i><br><?=substr($book[$id][2],0,100)."..."?>
-             </p>
-                    </a>
-                      <a href="<?=$book[$id][5]?>" class="btn btn-success">Open</a>
-                    </div>
-                </div>
-            </div>
+    <div class="container p-3 mx-auto">
+    <div class="container">
+    <div class="row justify-content-center">
+    <div class="card mb-3" style="width:80%">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="<?=$book[$id][4]?>" class="img-fluid rounded-start" alt="Card Image">
         </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title"><?=$book[$id][0]?></h5>
+            <p class="card-text"><br><i><b>By: </b><?=$book[$id][1]?></i><br><i><b>Category: </b><?=$book[$id][3]?></b></i><br><?=$book[$id][3]?></b></i><br><?=$book[$id][2]?>
+             </p>
+         
+             <a href="<?=$book[$id][5]?>" class="btn btn-success">Open</a>
+          </div>
+        </div>
+      </div>
+        
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

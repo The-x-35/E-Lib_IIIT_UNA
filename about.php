@@ -70,7 +70,7 @@ $book = get_all_books();
 
 At present, IIIT Una operates from its permanent campus at Saloh, Una. The campus is fully furnished and working full fledged from its permanent campus.
             </p>
-        <button type="button" class="btn btn-info btn-lg text-center">About Us</button>
+        <!-- <button type="button" class="btn btn-info btn-lg text-center">About Us</button>
         <div class="container mt-4">
         <div class="row ">
             <div class="col-lg-4 col-md-6 p-3">
@@ -98,7 +98,7 @@ At present, IIIT Una operates from its permanent campus at Saloh, Una. The campu
             </div>
          
         </div>
-    </div>
+    </div> -->
                </form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>

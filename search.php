@@ -7,7 +7,6 @@ if(!isset($_GET['key'])|| empty($_GET['key'])){
 $key = $_GET['key'];
 include "func-book.php";
 $book = search_books($key);
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -67,31 +66,34 @@ $book = search_books($key);
     Search result(s) for <b><?=$key?></b>
 
     <div class="d-flex pt-3">
-      <?php if($book==0){?>
+      <?php if(count($book)==0){?>
          <div class="alert alert-warning text text-center p-5 pdf-list" role="alert">
           <img src="empty.jpg" width="100">  
            <br> <b>"<?=$key?>"</b> not found! You can use the request a book form.
-         </div>
+      </div>
         
         <?php }else{?>
-             <div class="container p-3">
-            <div class="row">
-              
+             <div class="container p-3 mx-auto">
+             <div class="container justify-content-center">
+               
            <?php for ($x = 0; $x < count($book); $x++) { ?>
-            
-            <div class="col-lg-4 col-md-6 p-3">
-                <a href="bookpage.php?id=<?=$x+1?>" class="custom-card">
-                <div class="card">
-                    <img src="<?=$book[$x][4]?>" class="card-img-top" alt="Card Image">
+               
+              <div class="card mb-3" style="width:80%">
+                <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="<?=$book[$x][4]?>" class="img-fluid rounded-start" alt="Card Image">
+                </div>
+                   <div class="col-md-8" >
                     <div class="card-body">
                         <h5 class="card-title"><?=$book[$x][0]?></h5>
-               <p class="card-text"><br><i><b>By: </b><?=$book[$x][1]?></i><br><i><b>Category: </b><?=$book[$x][3]?></b></i><br><?=substr($book[$x][2],0,100)."..."?>
+               <p class="card-text"><br><i><b>By: </b><?=$book[$x][1]?></i><br><i><b>Category: </b><?=$book[$x][3]?></b></i><br><?=$book[$x][2]?>
              </p>
-                    </a>
                       <a href="<?=$book[$x][5]?>" class="btn btn-success">Open</a>
                     </div>
                 </div>
-            </div>
+              </div>
+               </div>
+             
             <?php }?>
                     <?php }?>
          
